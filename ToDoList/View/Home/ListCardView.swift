@@ -57,7 +57,7 @@ struct ListCardView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: ReminderList.self, configurations: config)
-        let example = ReminderList(name: "Morning", iconName: "sun.max.fill", reminder: [Reminder(name: "wake up")])
+        let example = ReminderList(name: "House Work", iconName: "house", reminder: [Reminder(name: "mow lawn")])
         
         return ListCardView(reminderList: example)
             .modelContainer(container)
