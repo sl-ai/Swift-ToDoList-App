@@ -10,12 +10,10 @@ import SwiftData
 
 struct ListCardView: View {
     @Bindable var reminderList: ReminderList
-    @State private var linkIsActive = false
+    let onTap: () -> Void
     
     var body: some View {
-        Button {
-            linkIsActive = true
-        } label: {
+        Button(action: onTap) {
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
                     listIcon
@@ -33,12 +31,7 @@ struct ListCardView: View {
             .background(Color(UIColor.tertiarySystemFill))
             .cornerRadius(10)
         }
-        .overlay(
-            NavigationLink(isActive: $linkIsActive,
-                           destination: { ReminderListView(reminderList: reminderList) },
-                           label: { EmptyView() }
-                          ).opacity(0)
-        ).buttonStyle(.plain)
+        .buttonStyle(.plain)
     }
     
     var listIcon: some View {
@@ -59,8 +52,10 @@ struct ListCardView: View {
         let container = try ModelContainer(for: ReminderList.self, configurations: config)
         let example = ReminderList(name: "House Work", iconName: "house", reminder: [Reminder(name: "mow lawn")])
         
-        return ListCardView(reminderList: example)
-            .modelContainer(container)
+        return ListCardView(reminderList: example) {
+            // Preview action
+        }
+        .modelContainer(container)
     } catch {
         fatalError("Failed to create a model container.")
     }

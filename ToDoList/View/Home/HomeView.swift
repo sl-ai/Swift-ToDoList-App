@@ -12,6 +12,7 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query var reminderList: [ReminderList]
     @State private var path = [ReminderList]()
+    @State private var selectedReminderList: ReminderList?
     
     let colums = [GridItem(.adaptive(minimum: 150))]
     
@@ -23,7 +24,9 @@ struct HomeView: View {
                         VStack {
                             LazyVGrid(columns: colums, spacing: 10) {
                                 ForEach(reminderList.prefix(4)) { reminders in
-                                    ListCardView(reminderList: reminders)
+                                    ListCardView(reminderList: reminders) {
+                                        selectedReminderList = reminders
+                                    }
                                 }
                             }
                         }
@@ -50,6 +53,18 @@ struct HomeView: View {
             }
             .navigationTitle("To Do List")
             .navigationDestination(for: ReminderList.self, destination: CreateSectionView.init)
+            .sheet(item: $selectedReminderList) { reminderList in
+                NavigationStack {
+                    ReminderListView(reminderList: reminderList)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button("Done") {
+                                    selectedReminderList = nil
+                                }
+                            }
+                        }
+                }
+            }
             .toolbar {
                 Button("Add Section", systemImage: "plus", action: addSection)
             }
