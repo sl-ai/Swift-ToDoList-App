@@ -71,13 +71,13 @@ jobs:
         
     - name: Start Appium Server
       run: |
-        cd Swift-ToDoList-App
+        # cd Swift-ToDoList-App
         appium --base-path / --log appium.log &
         sleep 10
         
     - name: Run Appium Tests
       run: |
-        cd Swift-ToDoList-App
+        # cd Swift-ToDoList-App
         npm test
         
     - name: Upload test results
@@ -104,5 +104,5 @@ jobs:
         pkill -f appium || true
         
         # Shutdown simulator
-        xcrun simctl shutdown "iPhone 15 Pro" || true
-        xcrun simctl delete "iPhone 15 Pro" || true
+        xcrun simctl shutdown "iPhone 16 Pro" || true
+        xcrun simctl delete "iPhone 16 Pro" || true
