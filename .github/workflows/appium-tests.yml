@@ -12,8 +12,8 @@ jobs:
     
     strategy:
       matrix:
-        ios-version: ['17.0']
-        device: ['iPhone 15 Pro']
+        ios-version: ['18.6']
+        device: ['iPhone 16 Pro']
     
     steps:
     - name: Checkout code
@@ -65,7 +65,7 @@ jobs:
       run: |
         
         # Update appium.config.js with built app path
-        sed -i '' 's|\./ToDoList\.ipa|./build/Build/Products/Debug-iphonesimulator/ToDoList.app|g' appium.config.js
+        sed -i '' 's|/Users/shinlee/Library/Developer/Xcode/DerivedData/ToDoList-fedlpydtrbrwzgcxfjummcutwynt/Build/Products/ToDoList.app|./build/Build/Products/Debug-iphonesimulator/ToDoList.app|g' appium.config.js
         sed -i '' 's|iPhone 16 Plus|iPhone 16 Pro|g' appium.config.js
         sed -i '' 's|17\.0|18.6|g' appium.config.js
         
