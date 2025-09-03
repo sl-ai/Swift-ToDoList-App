@@ -1,0 +1,36 @@
+{
+  "name": "todolist-appium-tests",
+  "version": "1.0.0",
+  "description": "Appium tests for Swift ToDo List iOS app",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "test:home": "mocha tests/home.test.js --timeout 60000",
+    "test:reminder": "mocha tests/reminder.test.js --timeout 60000",
+    "test:mocha": "mocha tests/**/*.js --timeout 60000",
+    "appium": "appium",
+    "setup": "npm install && npm run setup:appium"
+  },
+  "keywords": [
+    "appium",
+    "ios",
+    "swift",
+    "testing",
+    "automation"
+  ],
+  "author": "Shin Lee",
+  "license": "MIT",
+  "devDependencies": {
+    "appium": "^2.2.3",
+    "appium-doctor": "^1.16.0",
+    "appium-uiautomator2-driver": "^2.34.1",
+    "appium-xcuitest-driver": "^5.6.0",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "wd": "^1.14.0"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.35.0",
+    "webdriverio": "^8.0.0"
+  }
+}

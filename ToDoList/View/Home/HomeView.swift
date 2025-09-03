@@ -24,9 +24,7 @@ struct HomeView: View {
                         VStack {
                             LazyVGrid(columns: colums, spacing: 10) {
                                 ForEach(reminderList.prefix(4)) { reminders in
-                                    ListCardView(reminderList: reminders) {
-                                        selectedReminderList = reminders
-                                    }
+                                    ListCardView(reminderList: reminders)
                                 }
                             }
                         }

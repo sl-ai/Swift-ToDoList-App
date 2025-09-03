@@ -1,6 +1,6 @@
 # A Simple To-Do List App Written in Swift
 
-This repository contains a simple To-do list application built for iPhone, iPad, and Apple Watch using Swift 5.
+This repository contains a simple To-do list application built for iPhone, iPad, and Apple Watch using Swift 6.
 
 ## Main Features
 
@@ -30,7 +30,7 @@ This repository contains a simple To-do list application built for iPhone, iPad,
 
 * iOS 11.0+
 * Xcode 11.0+
-* Swift 5.0+
+* Swift 6.0+
 
 ## How to Run
 
