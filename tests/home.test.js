@@ -1,6 +1,6 @@
 const { remote } = require('webdriverio');
 const assert = require('chai').assert;
-const { CAPABILITIES } = require('../appium.config.js');
+const config = require('../appium.config.js');
 
 describe('ToDo List App - Home Screen Tests', function() {
   let driver;
@@ -11,7 +11,7 @@ describe('ToDo List App - Home Screen Tests', function() {
       hostname: 'localhost',
       port: 4723,
       path: '/',
-      capabilities: CAPABILITIES
+      capabilities: config.server['default-capabilities']
     });
   });
   

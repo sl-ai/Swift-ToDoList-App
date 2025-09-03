@@ -78,6 +78,7 @@ jobs:
     - name: Run Appium Tests
       run: |
         # cd Swift-ToDoList-App
+        mkdir -p screenshots
         npm test
         
     - name: Upload test results
@@ -86,16 +87,16 @@ jobs:
       with:
         name: test-results
         path: |
-          Swift-ToDoList-App/screenshots/
-          Swift-ToDoList-App/*.log
-          Swift-ToDoList-App/appium.log
+          screenshots/
+          *.log
+          appium.log
         
     - name: Upload app build
       uses: actions/upload-artifact@v4
       if: always()
       with:
         name: ios-app
-        path: Swift-ToDoList-App/build/Build/Products/Debug-iphonesimulator/ToDoList.app
+        path: ./build/Build/Products/Debug-iphonesimulator/ToDoList.app
         
     - name: Cleanup
       if: always()

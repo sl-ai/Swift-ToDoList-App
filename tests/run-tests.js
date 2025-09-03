@@ -7,13 +7,13 @@
 
 const { remote } = require('webdriverio');
 const assert = require('chai').assert;
-const { CAPABILITIES } = require('../appium.config.js');
+const config = require('../appium.config.js');
 
 const WDIO_OPTIONS = {
   hostname: '127.0.0.1',
   port: 4723,
   path: '/',
-  capabilities: CAPABILITIES,
+  capabilities: config.server['default-capabilities'],
   logLevel: 'info'
 };
 
