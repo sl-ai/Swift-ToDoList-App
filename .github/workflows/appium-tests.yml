@@ -27,7 +27,7 @@ jobs:
         
     - name: Install dependencies
       run: |
-        cd Swift-ToDoList-App
+        pwd
         npm ci
         
     - name: Install Appium
