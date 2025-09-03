@@ -46,28 +46,28 @@ jobs:
         xcrun simctl list devices
         
         # Create and boot simulator
-        xcrun simctl create "iPhone 15 Pro" "iPhone 15 Pro" "iOS17.0"
-        xcrun simctl boot "iPhone 15 Pro"
+        xcrun simctl create "iPhone 16" "iPhone 16 Pro" "iOS18.6"
+        xcrun simctl boot "iPhone 16 Pro"
         
         # Wait for simulator to be ready
-        xcrun simctl status_bar "iPhone 15 Pro" override --time "9:41" --batteryLevel 100 --cellularBars 4
+        xcrun simctl status_bar "iPhone 16 Pro" override --time "9:41" --batteryLevel 100 --cellularBars 4
         
     - name: Build iOS App
       run: |
-        cd Swift-ToDoList-App
+        
         xcodebuild -project ToDoList.xcodeproj \
                    -scheme ToDoList \
-                   -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0' \
+                   -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.6' \
                    -derivedDataPath build \
                    build
                    
     - name: Update Appium config
       run: |
-        cd Swift-ToDoList-App
+        
         # Update appium.config.js with built app path
         sed -i '' 's|\./ToDoList\.ipa|./build/Build/Products/Debug-iphonesimulator/ToDoList.app|g' appium.config.js
-        sed -i '' 's|iPhone 15 Pro|iPhone 15 Pro|g' appium.config.js
-        sed -i '' 's|17\.0|17.0|g' appium.config.js
+        sed -i '' 's|iPhone 16 Plus|iPhone 16 Pro|g' appium.config.js
+        sed -i '' 's|17\.0|18.6|g' appium.config.js
         
     - name: Start Appium Server
       run: |
