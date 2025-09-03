@@ -81,7 +81,7 @@ jobs:
         npm test
         
     - name: Upload test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: test-results
@@ -91,7 +91,7 @@ jobs:
           Swift-ToDoList-App/appium.log
         
     - name: Upload app build
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: ios-app
