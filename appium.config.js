@@ -1,4 +1,18 @@
+const CAPABILITIES = {
+  platformName: 'iOS',
+  'appium:platformVersion': '18.6',
+  'appium:deviceName': 'iPhone 16 Pro',
+  'appium:automationName': 'XCUITest',
+  'appium:wdaLocalPort': 8100,
+  'appium:app': '/Users/shinlee/Library/Developer/Xcode/DerivedData/ToDoList-fedlpydtrbrwzgcxfjummcutwynt/Build/Products/ToDoList.app',
+  'appium:noReset': true,
+  'appium:fullReset': false,
+  'appium:autoAcceptAlerts': true,
+  'appium:simulator': true
+};
+
 module.exports = {
+  CAPABILITIES,
   server: {
     address: '127.0.0.1',
     'allow-cors': true,
@@ -6,18 +20,7 @@ module.exports = {
     'callback-address': '127.0.0.1',
     'callback-port': 4723,
     'debug-log-spacing': true,
-    'default-capabilities': {
-      platformName: 'iOS',
-      'appium:platformVersion': '17.0',
-      'appium:deviceName': 'iPhone 16 Plus',
-      'appium:automationName': 'XCUITest',
-      'appium:udid': 'B6C04136-0085-4E41-99C3-A1025B8F492C',
-      'appium:app': '/Users/shinlee/Library/Developer/Xcode/DerivedData/ToDoList-fedlpydtrbrwzgcxfjummcutwynt/Build/Products/ToDoList.app', // Path to your built app, // Update this path to your built app
-      'appium:noReset': true,
-      'appium:fullReset': false,
-      'appium:autoAcceptAlerts': true,
-      'appium:simulator': true
-    },
+    'default-capabilities': CAPABILITIES,
     driver: {
       xcuitest: {
 

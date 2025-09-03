@@ -1,6 +1,6 @@
 const { remote } = require('webdriverio');
 const assert = require('chai').assert;
-
+const { CAPABILITIES } = require('../appium.config.js');
 describe('ToDo List App - Reminder Management Tests', function() {
   let driver;
   
@@ -10,19 +10,7 @@ describe('ToDo List App - Reminder Management Tests', function() {
       hostname: 'localhost',
       port: 4723,
       path: '/',
-      capabilities :  {
-        platformName: 'iOS',
-        'appium:platformVersion': '18.6',
-        'appium:deviceName': 'iPhone 16 Plus',
-        'appium:automationName': 'XCUITest',
-        'appium:wdaLocalPort': 8100,
-        'appium:udid': 'B6C04136-0085-4E41-99C3-A1025B8F492C',
-        'appium:app': '/Users/shinlee/Library/Developer/Xcode/DerivedData/ToDoList-fedlpydtrbrwzgcxfjummcutwynt/Build/Products/Debug-iphonesimulator/ToDoList.app',
-        'appium:noReset': true,
-        'appium:fullReset': false,
-        'appium:autoAcceptAlerts': true,
-        'appium:simulator': true
-      }
+      capabilities :  CAPABILITIES
     });
   });
   
